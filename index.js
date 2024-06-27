@@ -36,6 +36,11 @@ async function run() {
         }
 
         db.each("SELECT * FROM people", (err, row) => {
+
+            if (err) {
+                console.error(err)
+            }
+            
             console.log(row)
         })
     })
