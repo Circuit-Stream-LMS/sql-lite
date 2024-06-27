@@ -29,7 +29,7 @@ async function run() {
     db.serialize(() => {
         db.run("CREATE TABLE people (userId TEXT, firstName TEXT, lastName TEXT, sex TEXT, email TEXT, phone TEXT, dateOfBirth DATE, jobTitle TEXT)")
 
-        for (let i = 0; i < people.length; i++) {
+        for (let i = 1; i < people.length; i++) {
             const statement = db.prepare("INSERT INTO people VALUES (?, ?, ?, ?, ?, ?, ?, ?)")
             statement.run(people[i][1], people[i][2], people[i][3], people[i][4], people[i][5], people[i][6], people[i][7], people[i][8])
             statement.finalize()
